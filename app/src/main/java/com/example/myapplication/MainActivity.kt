@@ -66,8 +66,8 @@ class MainActivity : AccelerometerActivity() {
                     0,
                     login,
                     password,
-                    AngleX.getStringFromIndexToIndex(0, AngleX.length-4) + AngleX.get(AngleX.length-2),
-                    AngleY.getStringFromIndexToIndex(0, AngleY.length-4) + AngleY.get(AngleY.length-2),
+                    AngleX.replace(".", "").replace("°", "").toInt().toString(),
+                    AngleY.replace(".", "").replace("°", "").toInt().toString(),
                     STORAGE.MaxDeflectAngle.toString(),
                     lastMouseCommand,
                 )
@@ -210,6 +210,9 @@ class MainActivity : AccelerometerActivity() {
         startActivity(intend)
 //        finish()
     }
+
+
+
 
 //    fun String.getStringFromIndexToIndex(firstIndex: Int = 0, secondIndex: Int): String {
 //        var resultString = ""

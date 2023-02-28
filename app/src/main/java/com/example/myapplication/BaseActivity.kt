@@ -116,4 +116,36 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
+    fun String.getNormalFloat(): Float {
+        var result: String = ""
+        val coma = ','
+
+        if (this.get(0) == '-' && this.get(1) == coma) {
+            result = ("${this.get(0)}0${this.getStringFromIndexToIndex(1, this.length-1)}")
+        }
+        else if (this.get(0) == coma) {
+            result = ("0${this}")
+        } else {
+            result = this
+        }
+
+
+        return result.replace(coma, '.').toFloat()
+    }
+
+    fun String.replaceLast(oldValue: String, newValue: String): String {
+        var lastIndexOfElement = this.lastIndexOf(oldValue)
+        var a = this.getStringFromIndexToIndex(0, lastIndexOfElement-1)
+        var b = this.getStringFromIndexToIndex(lastIndexOfElement, this.length-1).replace(oldValue, newValue)
+        return a + b
+    }
+
+//    fun String.normalizeStringInt(): String {
+//
+//
+//        return
+//    }
+
+
+
 }

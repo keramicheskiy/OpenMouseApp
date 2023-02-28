@@ -34,38 +34,17 @@ open class AccelerometerActivity : IntentingControl() {
     fun showAngle(path: Int, showMode: Char, setValue: (FloatArray?) -> Int): SensorEventListener {
         val mode = showMode.lowercase()
         val tvSensor = findViewById<TextView>(path)
-//        val database = Firebase.database
-//        val myRef = database.getReference("test/xxx")
-
 
         val sListener = object : SensorEventListener {
             override fun onSensorChanged(sEvent: SensorEvent?) {
                 val value = sEvent?.values
                 val sensorValue = setValue(value)
 
-                if (isBtnCalibrateWasClickedX && mode == "x") {
-                    if (sensorValue + STORAGE.MaxDeflectAngle * 10 < 3600 &&
-                        sensorValue - STORAGE.MaxDeflectAngle * 10 > 0) {
-                        calibratedValueX = sensorValue
-                    } else {
-                        showErrorSnackBar("Невозможно совершить калибровку", true)
-                    }
-//                    calibratedValueX = sensorValue
-                    isBtnCalibrateWasClickedX = false
-
-                }
-                if (isBtnCalibrateWasClickedY && mode == "y") {
-                    calibratedValueY = sensorValue
-                    isBtnCalibrateWasClickedY = false
-                }
-
-                val sData = getCalibratedValue(sensorValue, mode)
-
-//                AngleX.getStringFromIndexToIndex(0, AngleX.length-2) + "," + AngleX.get(AngleX.length-1)
-
-                if (true) {
-                    tvSensor.text = "${sData.toString().getStringFromIndexToIndex(0, sData.toString().length-2) + "," + sData.toString().get(sData.toString().length-1)}°"
-                }
+                defineCalibrationIfX(mode, sensorValue)
+                defineCalibrationIfY(mode, sensorValue)
+                val sData = getCalibratedValue(sensorValue, mode).toString()
+                tvSensor.text = "${(sData.replaceLast(sData.get(sData.length-1).toString(),
+                    "." + sData.get(sData.length-1).toString())).getNormalFloat()}°"
             }
             override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
         }
@@ -77,37 +56,53 @@ open class AccelerometerActivity : IntentingControl() {
         val sManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val sensor = sManager.getDefaultSensor(sensorName)
         sManager.registerListener(sListener, sensor, SensorManager.SENSOR_DELAY_GAME)
-
-
-//        sManager.unregisterListener(sListener)
-//        val back = findViewById<Button>(R.id.btnCalibrateSensors)
-//
-//        back.text = sManager.getSensorList(Sensor.TYPE_ORIENTATION).toString()
-
     }
 
-    fun setValue(value: FloatArray?): Int {
-        return 0
-    }
 
-    fun getCalibratedValue(sensorValue: Int, mode: String): Int{
+    fun getCalibratedValue(sensorValue1: Int, mode: String): Int{
         val tvSensorRealValueX = findViewById<TextView>(R.id.tvSensorRealValueX)
         val tvSensorRealValueY = findViewById<TextView>(R.id.tvSensorRealValueY)
-
-
         var sData: Int = 0
+        var sensorValue = sensorValue1.toString()
+
+        var value = (sensorValue.replaceLast
+            (sensorValue[sensorValue.length-1].toString(),
+            ("." + sensorValue[sensorValue.length-1].toString()))
+                ).getNormalFloat()
+
         when(mode) {
             "x" -> {
-                sData = sensorValue - calibratedValueX
-                tvSensorRealValueX.text = "${sensorValue.toString().getStringFromIndexToIndex(0, sensorValue.toString().length-2) + "," + sensorValue.toString().get(sensorValue.toString().length-1)}°"
+                sData = sensorValue1 - calibratedValueX
+                tvSensorRealValueX.text = "${value}°"
             }
             "y" -> {
-                sData = sensorValue - calibratedValueY
-                tvSensorRealValueY.text = "${sensorValue.toString().getStringFromIndexToIndex(0, sensorValue.toString().length-2) + "," + sensorValue.toString().get(sensorValue.toString().length-1)}°"
+                sData = sensorValue1 - calibratedValueY
+                tvSensorRealValueY.text = "${value}°"
             }
         }
         return sData
     }
 
+    fun defineCalibrationIfX(mode: String, sensorValue: Int) {
+        if (isBtnCalibrateWasClickedX && mode == "x") {
+            if (sensorValue + STORAGE.MaxDeflectAngle * 10 < 3600 &&
+                sensorValue - STORAGE.MaxDeflectAngle * 10 > 0) {
+                calibratedValueX = sensorValue
+            } else {
+                showErrorSnackBar("Невозможно совершить калибровку", true)
+            }
+            isBtnCalibrateWasClickedX = false
+        }
+    }
+    fun defineCalibrationIfY(mode: String, sensorValue: Int) {
+        if (isBtnCalibrateWasClickedY && mode == "y") {
+            calibratedValueY = sensorValue
+            isBtnCalibrateWasClickedY = false
+        }
+    }
+
+
+
 
 }
+
