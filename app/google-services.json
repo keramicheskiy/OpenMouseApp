@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699020836998",
+    "project_id": "openmouse-a85e5",
+    "storage_bucket": "openmouse-a85e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699020836998:android:d3cd63e8e6cc6bef215107",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699020836998-of7nk0pti2mrfe7hvm1o80irkh3ujbt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXd0EjygM-kKc10ppumu-aQM2hVDoeKQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699020836998-of7nk0pti2mrfe7hvm1o80irkh3ujbt0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

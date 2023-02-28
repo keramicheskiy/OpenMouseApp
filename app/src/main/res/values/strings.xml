@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">OpenMouse</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="registration">Sign up</string>
+    <string name="sign_in">Log in</string>
+    <string name="activity_login_already_have_account">Already have an account?</string>
+    <string name="activity_login_to_register">Sign up</string>
+    <string name="go_back">GO BACK</string>
+    <string name="calibrate_sensors">Calibrate sensors</string>
+    <string name="ACWTE_main_tagline_phrase1">Всё, что нужно для управления
+        мышью  -  в одном приложении</string>
+    <string name="ACWTE_main_tagline_phrase">Everything you need to use your PC - in one app</string>
+    <string name="please_wait">Plese wait...</string>
+    <string name="You_already_have_an_account">Already have an account?</string>
+    <string name="Enter">Log in</string>
+    <string name="Go_back">GO BACK</string>
+    <string name="enter_email">Enter E-mail</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="using_agreement_text">Agree with user agreement</string>
+    <string name="main">Main page</string>
+    <string name="functions">Functions</string>
+    <string name="profile">Profile</string>
+    <string name="open">OPEN</string>
+    <string name="in_developing">IN DEVELOPING</string>
+    <string name="open_func">open_func</string>
+    <string name="developing_func">developing_func</string>
+    <string name="first_func_name">MouseEmulation</string>
+    <string name="second_func_name">TouchpadMouseEmulator</string>
+    <string name="third_func_name">KeyboardEmulation</string>
+    <string name="account">Account</string>
+    <string name="confidentiality">Confidentiality</string>
+    <string name="terms_of_use">Terms of use</string>
+    <string name="feedback">Feedback</string>
+    <string name="log_out">Log out</string>
+    <string name="settings">Settings</string>
+    <string name="show_virtual_mouse">Show virtual mouse?</string>
+    <string name="maximum_deflection_angle">Maximum deflection angle</string>
+    <string name="save_settings">Save settings</string>
+    <string name="Mouse_emulation1">Эмуляция Мыши</string>
+    <string name="Mouse_emulation">Mouse Emulation</string>
+    <string name="Angle_x">Angle x:  </string>
+    <string name="Angle_y">Angle y:  </string>
+    <string name="user">User</string>
+    <string name="account_without_developer_permissions">Account without developer permissions</string>
+    <string name="ruFirstFuncText"> /*** \n
+* Небольшая справка: \n
+* Данная функция предоставляет \n
+* возможность управлять мышью \n
+* и клавиатурой на компьютере \n
+* с телефона с помощью  \n
+* OpenMouse и программы \n
+* на компьютере. \n
+* \n
+* (Может работать прерывисто в \n
+* зависимости от сетевого \n
+* соединения компьютера \n
+* и портативного устройства.) \n
+***/</string>
+    <string name="engFirstFuncText"> /***\n
+* Inforation: \n
+* This function allows you to  \n
+* control the mouse and keyboard  \n
+* on your computer from the phone \n
+* using OpenMouse and the program \n
+* to the computer. \n
+* \n
+* (May work intermittently in  \n
+* network dependency computer \n
+* connection and portable device.) \n
+***/</string>
+
+</resources>

@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black_theme">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_line"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/direct_main"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/cool_bottom_lines_elements"
+
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/white_h" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="5dp"
+                android:text="@string/main"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/direct_functions"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageView32"
+                android:layout_width="35dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/white_menu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/functions"
+                android:textColor="@color/white"
+
+                android:paddingBottom="5dp"
+
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/direct_profile"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/imageView332"
+                android:layout_width="35dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/white_profile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/profile"
+                android:textColor="@color/white"
+
+                android:paddingBottom="5dp"
+
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/main_page_activity"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        >
+
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/backround_input"-->
+<!--            android:minHeight="?attr/actionBarSize"-->
+<!--            android:theme="?attr/actionBarTheme"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/homeButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:layout_marginEnd="3dp"-->
+<!--                android:text="@string/Go_back"-->
+<!--                android:backgroundTint="@color/purple_200"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                />-->
+
+
+
+
+
+<!--        </androidx.appcompat.widget.Toolbar>-->
+
+
+<!--        <Button-->
+<!--            android:id="@+id/button"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Button"-->
+<!--            android:backgroundTint="@color/purple_500"-->
+<!--            android:layout_gravity="center"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/homeButton"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"/>-->
+
+        <TextView
+            android:id="@+id/AppName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:paddingStart="5dp"
+            android:layout_marginTop="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last used function:"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:paddingStart="5dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AppName"
+            android:textColor="@color/white"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/profile_block"
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ExtraInfoText">
+            >
+
+            <LinearLayout
+                android:id="@+id/redirectToFirstFunc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/open_func"
+                        android:gravity="left"
+                        android:paddingStart="5dp"
+
+                        android:textColor="@color/purple_text"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="MouseEmulator"
+                        android:gravity="left"
+                        android:textSize="20dp"
+                        android:paddingStart="5dp"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:text="Additional info"
+                        android:textSize="14dp"
+                        android:paddingStart="5dp"
+                        android:textColor="@color/purple_200"
+                        />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    >
+
+                    <ImageView
+                        android:id="@+id/arrow4"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:rotation="180"
+                        app:srcCompat="@drawable/arrow_left" />
+
+                </LinearLayout>
+
+          </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <TextView
+                    android:id="@+id/ExtraInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/engFirstFuncText"
+                    android:textColor="#629755"
+                    android:background="@drawable/black_block"
+                    android:padding="10dp"
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/functions_activity"
+        android:visibility="gone"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/LL_func"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:gravity="center_horizontal"
+
+            android:layout_marginTop="50dp">
+
+
+
+            <TextView
+                android:id="@+id/btnOpenFunc"
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:text="@string/open"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/coolbuttons_two"
+                />
+
+
+            <TextView
+                android:id="@+id/btnDevelopingFunc"
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/coolbuttons_two"
+
+                android:text="@string/in_developing" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/func1"
+            android:layout_width="300dp"
+            android:layout_height="85dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/LL_func"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/profile_block"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            >
+
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/func_type1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/open_func"
+                    android:textColor="#9B7EDD"
+                    />
+
+                <TextView
+                    android:id="@+id/func_name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/first_func_name"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/i_hope_no_one_knows1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#9B7EDD"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/arrow1"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:rotation="180"
+                app:srcCompat="@drawable/arrow_left" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/func2"
+            android:layout_width="300dp"
+            android:layout_height="85dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/func1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/profile_block"
+            android:padding="10dp"
+            android:layout_gravity="center"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/func_type2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/developing_func"
+                    android:textColor="#9B7EDD"
+                    />
+
+                <TextView
+                    android:id="@+id/func_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/second_func_name"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/i_hope_no_one_knows2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#9B7EDD"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/arrow2"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:rotation="180"
+                app:srcCompat="@drawable/arrow_left" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/func3"
+            android:layout_width="300dp"
+            android:layout_height="85dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/func1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/profile_block"
+            android:padding="10dp"
+            android:layout_gravity="center"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/func_type3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/developing_func"
+                    android:textColor="#9B7EDD" />
+
+                <TextView
+                    android:id="@+id/func_name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/third_func_name"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/i_hope_no_one_knows3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#9B7EDD"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/arrow3"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:rotation="180"
+                app:srcCompat="@drawable/arrow_left" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/profile_activity"
+        android:visibility="gone"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:srcCompat="@drawable/profile_two"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center"
+            />
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/profile_block"
+            android:padding="10dp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photo">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/small_icons"
+                    app:srcCompat="@drawable/profile"
+                    android:layout_marginBottom="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/small_icons"
+                    app:srcCompat="@drawable/white_lock"
+                    android:layout_marginBottom="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/small_icons"
+                    app:srcCompat="@drawable/white_tick"
+                    android:layout_marginBottom="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/small_icons"
+                    app:srcCompat="@drawable/white_help"
+                    android:layout_marginBottom="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="7dp"
+                    android:background="@drawable/small_icons"
+                    app:srcCompat="@drawable/exit_white" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                >
+
+                <LinearLayout
+                    android:id="@+id/redirectToAccountDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/account"
+                        android:textColor="@color/my_color"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="7dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingEnd="10dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imageView580"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:rotation="180"
+                            app:srcCompat="@drawable/arrow_left" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#7b7b7b"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:id="@+id/redirectToPrivacyPolitics"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/confidentiality"
+                        android:textColor="@color/my_color"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="7dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingEnd="10dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imageView58"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:rotation="180"
+                            app:srcCompat="@drawable/arrow_left" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#7b7b7b"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="8dp"/>
+
+
+
+                <LinearLayout
+                    android:id="@+id/redirectToTermsOfUse"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/terms_of_use"
+                        android:textColor="@color/my_color"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="7dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingEnd="10dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imageView44"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:rotation="180"
+                            app:srcCompat="@drawable/arrow_left" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#7b7b7b"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="8dp"/>
+
+
+                <LinearLayout
+                    android:id="@+id/redirectToFeedBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/feedback"
+                        android:textColor="@color/my_color"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="left"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingEnd="10dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imageView4443"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:rotation="180"
+                            app:srcCompat="@drawable/arrow_left" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#7b7b7b"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:id="@+id/logOutFromAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/log_out"
+                        android:textColor="@color/my_color"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="7dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingEnd="10dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imageView499"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:rotation="180"
+                            app:srcCompat="@drawable/arrow_left" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
