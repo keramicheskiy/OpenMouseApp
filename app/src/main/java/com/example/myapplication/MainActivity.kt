@@ -66,8 +66,15 @@ class MainActivity : AccelerometerActivity() {
                     0,
                     login,
                     password,
-                    AngleX.replace(".", "").replace("°", "").toInt().toString(),
-                    AngleY.replace(".", "").replace("°", "").toInt().toString(),
+
+                    AngleX.replace(".", "")
+                        .replace("°", "")
+                        .toInt().toString(),
+
+                    AngleY.replace(".", "")
+                        .replace("°", "")
+                        .toInt().toString(),
+
                     STORAGE.MaxDeflectAngle.toString(),
                     lastMouseCommand,
                 )
