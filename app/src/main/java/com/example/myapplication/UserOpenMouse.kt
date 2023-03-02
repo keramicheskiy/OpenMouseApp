@@ -10,7 +10,8 @@ data class UserOpenMouse (
     val coordinateX: String = "",
     val coordinateY: String = "",
     val MaxDeflectAngle: String = "",
-    val LastMouseCommand: String = ""
+    val LastMouseCommand: String = "",
+    val didServerHandleCommand: String = "false"
 
 ) : Parcelable
 

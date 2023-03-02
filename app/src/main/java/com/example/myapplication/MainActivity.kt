@@ -39,6 +39,9 @@ class MainActivity : AccelerometerActivity() {
     val myDbManager = MyDbManager(this)
     val database = Firebase.database
     var lastMouseCommand: String = ""
+    var didServerHandleCommand = "true"
+    var didServerHandleCommand1 = "true"
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,37 +60,41 @@ class MainActivity : AccelerometerActivity() {
         val password = myDbManager.readUserDetailsFromDB()[0].password
 
         myRef = database.getReference("OpenMouse/usersData/${login}")
-        binding.AngleX.doOnTextChanged { text, start, before, count ->
+        binding.AngleX.doOnTextChanged { text, start, before, count2 ->
             if (binding.SwitchStatus.isChecked) {
                 var AngleX = binding.AngleX.text.toString()
                 var AngleY = binding.AngleY.text.toString()
+//
+//                myRef.child("didServerHandleCommand").get().addOnSuccessListener {
+//                    didServerHandleCommand1 = it.value.toString()
+//                }
+//
+                if (count == 0) {
+                    count++
+                } else {
+                    didServerHandleCommand = "true"
+                }
 
                 val userOpenMouse = UserOpenMouse(
                     0,
                     login,
                     password,
-
-                    AngleX.replace(".", "")
-                        .replace("°", "")
-                        .toInt().toString(),
-
-                    AngleY.replace(".", "")
-                        .replace("°", "")
-                        .toInt().toString(),
-
+                    AngleX.replace(".", "").replace("°", ""),
+                    AngleY.replace(".", "").replace("°", ""),
                     STORAGE.MaxDeflectAngle.toString(),
                     lastMouseCommand,
+                    didServerHandleCommand,
                 )
                 myRef.setValue(userOpenMouse)
             }
 
         }
 
-        var myRef1 = database.getReference("OpenMouse/usersData")
-        onChangeFirebaseListener(myRef1){
-//            binding.a.text = it.child("$login").child("password").value.toString()
-//            binding.a.text = it.child("$login").value.toString()
-        }
+//        var myRef1 = database.getReference("OpenMouse/usersData")
+//        onChangeFirebaseListener(myRef1){
+////            binding.a.text = it.child("$login").child("password").value.toString()
+////            binding.a.text = it.child("$login").value.toString()
+//        }
 
 
 
@@ -165,26 +172,38 @@ class MainActivity : AccelerometerActivity() {
         binding.leftMouseButton.setOnClickListener() {
             btnBlink(R.id.leftMouseButton)
             lastMouseCommand = "leftMouseButton"
+            didServerHandleCommand = "false"
+            count = 0
         }
         binding.rightMouseButton.setOnClickListener() {
             btnBlink(R.id.rightMouseButton)
             lastMouseCommand = "rightMouseButton"
+            didServerHandleCommand = "false"
+            count = 0
         }
         binding.holdLeftMouseButton.setOnClickListener() {
             btnBlink(R.id.hold_left_mouse_button)
             lastMouseCommand = "holdLeftMouseButton"
+            didServerHandleCommand = "false"
+            count = 0
         }
         binding.holdRightMouseButton.setOnClickListener() {
             btnBlink(R.id.hold_right_mouse_button)
             lastMouseCommand = "holdRightMouseButton"
+            didServerHandleCommand = "false"
+            count = 0
         }
         binding.scrollUp.setOnClickListener() {
             imgBlink(R.id.scroll_up)
             lastMouseCommand = "scrollUp"
+            didServerHandleCommand = "false"
+            count = 0
         }
         binding.scrollDown.setOnClickListener() {
             imgBlink(R.id.scroll_down)
             lastMouseCommand = "scrollDown"
+            didServerHandleCommand = "false"
+            count = 0
         }
 
 

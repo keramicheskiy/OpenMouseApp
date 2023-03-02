@@ -8,7 +8,7 @@ class STORAGE {
 
     companion object{
         var settings_virtualMouseCheckBoxStatus = ""
-        var MaxDeflectAngle = 70
+        var MaxDeflectAngle = 90
         var gettingDatabaseResult = "0"
 
 
