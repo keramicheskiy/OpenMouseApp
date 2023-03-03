@@ -28,10 +28,8 @@ import kotlin.random.Random
 class MainActivity : AccelerometerActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    lateinit var sManager: SensorManager
-    lateinit var mUserDetails: FirstFunctionUser
-//    lateinit var login: String
-//    lateinit var password: String
+//    lateinit var sManager: SensorManager
+//    lateinit var mUserDetails: FirstFunctionUser
     lateinit var myRef: DatabaseReference
     lateinit var sListener1: SensorEventListener
     lateinit var sListener2: SensorEventListener

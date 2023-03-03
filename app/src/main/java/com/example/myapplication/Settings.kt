@@ -24,15 +24,6 @@ open class Settings : AppCompatActivity(){
         binding = SettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val database = Firebase.database
-//        val myRef = database.getReference("test/xxx")
-//
-//        binding.button2.setOnClickListener() {
-//            myRef.setValue(binding.edText.text.toString())
-//        }
-//
-//        onChangeListener(myRef)
-
         binding.showVirtualMouseCheckBox.isChecked = true
 
         if (STORAGE.settings_virtualMouseCheckBoxStatus in arrayOf("GONE", "INVISIBLE")) {
@@ -72,43 +63,5 @@ open class Settings : AppCompatActivity(){
 
 
     }
-
-
-
-//    private fun onChangeListener(dRef: DatabaseReference) {
-//        dRef.addValueEventListener(object: ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                binding.apply{
-//                    rcView.append("\n")
-//                    rcView.append(snapshot.value.toString())
-//                }
-//            }
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//
-//
-//    }
-
-
-
-
-
-
-
-//    fun isInt(num: String): Boolean {
-//        var check: Int = 0
-//        val numbers: List<String> = listOf(0..9)
-//        for (x in 0..num.length) {
-//            if (x in numbers) {
-//                check++
-//            } else {
-//
-//            }
-//
-//        }
-//        return true
-//    }
 
 }
