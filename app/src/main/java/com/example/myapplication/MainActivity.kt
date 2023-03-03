@@ -180,13 +180,13 @@ class MainActivity : AccelerometerActivity() {
             count = 0
         }
         binding.holdLeftMouseButton.setOnClickListener() {
-            btnBlink(R.id.hold_left_mouse_button)
+            btnBlink(R.id.holdLeftMouseButton)
             lastMouseCommand = "holdLeftMouseButton"
             didServerHandleCommand = "false"
             count = 0
         }
         binding.holdRightMouseButton.setOnClickListener() {
-            btnBlink(R.id.hold_right_mouse_button)
+            btnBlink(R.id.holdRightMouseButton)
             lastMouseCommand = "holdRightMouseButton"
             didServerHandleCommand = "false"
             count = 0
@@ -200,6 +200,12 @@ class MainActivity : AccelerometerActivity() {
         binding.scrollDown.setOnClickListener() {
             imgBlink(R.id.scroll_down)
             lastMouseCommand = "scrollDown"
+            didServerHandleCommand = "false"
+            count = 0
+        }
+        binding.pressMouseWheel.setOnClickListener() {
+            imgBlink(R.id.pressMouseWheel)
+            lastMouseCommand = "pressMouseWheel"
             didServerHandleCommand = "false"
             count = 0
         }

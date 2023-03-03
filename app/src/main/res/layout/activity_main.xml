@@ -87,25 +87,27 @@
             <LinearLayout
                 android:id="@+id/info"
                 android:layout_width="300dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/profile_block"
                 android:gravity="left"
                 android:orientation="vertical"
-                android:paddingStart="20dp">
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
                     android:text="@string/Mouse_emulation"
-                    android:textColor="#9B7EDD" />
+                    android:textColor="#9B7EDD"
+                    android:paddingStart="20dp"
+                    />
 
                 <View
-                    android:layout_width="200dp"
+                    android:layout_width="190dp"
                     android:layout_height="1dp"
-
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="2dp"
                     android:background="#7b7b7b" />
@@ -120,7 +122,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingStart="20dp">
 
                         <TextView
                             android:id="@+id/tvSensorSmall11"
@@ -192,6 +195,105 @@
 
                     </LinearLayout>
                 </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="7dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="7dp"
+                    >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginBottom="7dp"
+                        android:background="#7b7b7b" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+
+                        app:layout_constraintTop_toTopOf="@+id/mouse_buttons">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/btnReturnStartValue"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:background="@drawable/reload_button"
+
+                                android:padding="10dp"
+                                app:srcCompat="@drawable/reload"
+
+                                />
+
+                            <ImageView
+                                android:id="@+id/btnGetKeyboard"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:background="@drawable/reload_button"
+                                android:layout_marginStart="7dp"
+
+                                android:padding="10dp"
+                                app:srcCompat="@drawable/keyboard_big"
+
+                                />
+
+                        </LinearLayout>
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <Switch
+                                android:id="@+id/SwitchStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/block"
+                                android:checked="true"
+                                android:paddingStart="10dp"
+                                android:text="On / Off"
+                                android:textColor="@color/white"
+                                android:trackTint="@color/black_theme_text_color" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/btnCalibrateSensors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/purple_500"
+                        android:text="@string/calibrate_sensors"
+                        android:textColor="@color/white" />
+
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
 <!--            <TextView-->
@@ -207,7 +309,29 @@
 <!--                app:layout_constraintTop_toBottomOf="@+id/info"-->
 <!--                />-->
 
-            <LinearLayout
+<!--            <LinearLayout-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="60dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/mouse_buttons"-->
+<!--                android:background="@drawable/profile_block"-->
+<!--                android:padding="10dp"-->
+<!--                >-->
+
+
+
+
+
+
+
+
+
+                <LinearLayout
                 android:id="@+id/virtualMouse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -217,7 +341,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="70dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -239,10 +363,10 @@
                             android:orientation="vertical"
                             >
                             <Button
-                                android:id="@+id/hold_left_mouse_button"
+                                android:id="@+id/leftMouseButton"
                                 android:layout_width="80dp"
-                                android:layout_height="150dp"
-                                android:text="hold the LMB"
+                                android:layout_height="170dp"
+                                android:text="Click the LMB"
                                 android:background="@drawable/mouse_buttons_top_left"
                                 />
 
@@ -273,6 +397,17 @@
                                 android:layout_marginBottom="3dp"
                                 android:background="@drawable/reload_button"
                                 />
+                            <ImageView
+                                android:id="@+id/pressMouseWheel"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginRight="3dp"
+
+                                android:src="@drawable/scroll_wheel"
+                                android:layout_marginBottom="3dp"
+                                android:background="@drawable/reload_button"
+                                />
 
                             <ImageView
                                 android:id="@+id/scroll_down"
@@ -292,11 +427,11 @@
                         </LinearLayout>
 
                         <Button
-                            android:id="@+id/hold_right_mouse_button"
+                            android:id="@+id/rightMouseButton"
                             android:layout_width="80dp"
-                            android:layout_height="150dp"
+                            android:layout_height="170dp"
                             android:background="@drawable/mouse_buttons_top_right"
-                            android:text="hold the RMB"
+                            android:text="Click the RMB"
 
                             />
 
@@ -321,25 +456,32 @@
 
 
                 <Button
-                    android:id="@+id/leftMouseButton"
+                    android:id="@+id/holdLeftMouseButton"
                     android:layout_width="100dp"
-                    android:layout_height="160dp"
+                    android:layout_height="140dp"
                     android:layout_marginEnd="3dp"
                     android:background="@drawable/mouse_buttons_bottom_left"
-                    android:text="Click the LMB"
+                    android:text="hold the LMB "
 
                     />
 
                 <Button
-                    android:id="@+id/rightMouseButton"
+                    android:id="@+id/holdRightMouseButton"
                     android:layout_width="100dp"
-                    android:layout_height="160dp"
+                    android:layout_height="140dp"
                     android:layout_marginStart="3dp"
                     android:background="@drawable/mouse_buttons_bottom_right"
-                    android:text="Click the RMB"
+                    android:text="hold the RMB"
 
                     />
 
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="hold the LMB " />
+
             </LinearLayout>
 
 
@@ -347,97 +489,10 @@
         </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="100dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/mouse_buttons"
-                android:background="@drawable/profile_block"
-                android:padding="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-
-
-                    app:layout_constraintTop_toTopOf="@+id/mouse_buttons">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/btnReturnStartValue"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:background="@drawable/reload_button"
-
-                            android:padding="10dp"
-                            app:srcCompat="@drawable/reload"
-
-                            />
-
-                        <ImageView
-                            android:id="@+id/btnGetKeyboard"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:background="@drawable/reload_button"
-                            android:layout_marginStart="7dp"
-
-                            android:padding="10dp"
-                            app:srcCompat="@drawable/keyboard_big"
-
-                            />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="right"
-                        android:orientation="horizontal">
-
-                        <Switch
-                            android:id="@+id/SwitchStatus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:background="@drawable/block"
-                            android:checked="true"
-                            android:paddingStart="10dp"
-                            android:text="On / Off"
-                            android:textColor="@color/white"
-                            android:trackTint="@color/black_theme_text_color" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-                <Button
-                    android:id="@+id/btnCalibrateSensors"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/purple_500"
-                    android:text="@string/calibrate_sensors"
-                    android:textColor="@color/white" />
-
 
             </LinearLayout>
 
 
-        </LinearLayout>
 
 
     </ScrollView>
