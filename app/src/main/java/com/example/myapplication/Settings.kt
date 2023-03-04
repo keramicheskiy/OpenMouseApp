@@ -16,9 +16,10 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlin.math.atan
 
-open class Settings : AppCompatActivity(){
+open class Settings : BaseActivity(){
 
     private lateinit var binding: SettingsBinding
+    var maxDeflectAngle: Int = Constants.MAX_DEFLECT_ANGLE_INT
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = SettingsBinding.inflate(layoutInflater)
@@ -45,6 +46,7 @@ open class Settings : AppCompatActivity(){
 
         binding.homeButton.setOnClickListener(){
             val intent = Intent(this@Settings, MainActivity::class.java)
+            intent.putExtra(Constants.MAX_DEFLECT_ANGLE, maxDeflectAngle)
             startActivity(intent)
         }
 
@@ -57,9 +59,16 @@ open class Settings : AppCompatActivity(){
     fun changeAngleSettings(){
         val MaxDeflectAngle = binding.enterAngle.text.toString().trim{it <= ' '}
 
-        if (MaxDeflectAngle != "" && MaxDeflectAngle.toIntOrNull() != null) {
-            STORAGE.MaxDeflectAngle = MaxDeflectAngle.toInt()
+        if (MaxDeflectAngle.isInt()) {
+            if (MaxDeflectAngle != "" && MaxDeflectAngle.toIntOrNull() != null) {
+//                STORAGE.MaxDeflectAngle = MaxDeflectAngle.toInt()
+                maxDeflectAngle = MaxDeflectAngle.toInt()
+            }
+        } else {
+            showErrorSnackBar("Maximum deflection angle can only be an integer.", true)
         }
+
+
 
 
     }

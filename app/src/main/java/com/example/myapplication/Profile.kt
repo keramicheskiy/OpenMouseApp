@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
 import com.example.myapplication.R
 import com.example.myapplication.SQLiteDB.MyDbManager
+import com.example.myapplication.utils.Constants
 
 class Profile : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ProfileBinding
@@ -30,19 +31,22 @@ class Profile : BaseActivity(), View.OnClickListener {
         binding = ProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        myDbManager.openDb()
-        var login = myDbManager.readUserDetailsFromDB()[0].login
-        var password = myDbManager.readUserDetailsFromDB()[0].password
-        myDbManager.closeDb()
+//        myDbManager.openDb()
+//        var login = myDbManager.readUserDetailsFromDB()[0].login
+//        var password = myDbManager.readUserDetailsFromDB()[0].password
+//        myDbManager.closeDb()
+        var login = intent.getStringExtra(Constants.USER_LOGIN)
+        var password = intent.getStringExtra(Constants.USER_PASSWORD)
+
 
         binding.profileLoginText.text = login
-        binding.profilePasswordText.text = password.map { it -> '*' }.putTogether()
+        binding.profilePasswordText.text = password?.map { it -> '*' }?.putTogether()
 
         binding.profilePasswordText.setOnClickListener {
             if (binding.profilePasswordText.text != password) {
                 binding.profilePasswordText.text = password
             } else {
-                binding.profilePasswordText.text = password.map { it -> '*' }.putTogether()
+                binding.profilePasswordText.text = password?.map { it -> '*' }?.putTogether()
             }
 
         }

@@ -33,13 +33,20 @@ class ActivitySignIn : BaseActivity() {
 
         binding.signInButton.setOnClickListener() {
             if (validateRergisterDetails()){
+                val login: String = binding.enterEmail.text.toString()
+                    .trim { it <= ' ' }
+                    .decapitalize()
+
+                val password: String = binding.enterPassword.text.toString()
+                    .trim { it <= ' ' }
+
                 val auth = Firebase.auth
-                auth.signInWithEmailAndPassword(ACCOUNT_DATA.login, ACCOUNT_DATA.password).addOnCompleteListener {
+                auth.signInWithEmailAndPassword(login, password).addOnCompleteListener {
                     if (it.isSuccessful) {
                         showErrorSnackBar("Вход выполнен", false)
 
                         val database = Firebase.database
-                        val user = database.getReference("Users/${ACCOUNT_DATA.login.replace(".", "+")}")
+                        val user = database.getReference("Users/${login.replace(".", "+")}")
                         user.get().addOnSuccessListener {
                             val login = it.child("email").value.toString()
                             val password = it.child("password").value.toString()
@@ -52,9 +59,7 @@ class ActivitySignIn : BaseActivity() {
                             startActivity(intent)
                         }
                     } else {
-                        showErrorSnackBar("Логин или пароль неверен", true)
-                        ACCOUNT_DATA.login = ""
-                        ACCOUNT_DATA.password = ""
+                        showErrorSnackBar("Login or password is incorrect", true)
                         binding.enterEmail.text.clear()
                         binding.enterPassword.text.clear()
                     }
@@ -72,10 +77,8 @@ class ActivitySignIn : BaseActivity() {
         val TextInEnterEmail: String = binding.enterEmail.text.toString()
             .trim { it <= ' ' }
             .decapitalize()
-
         val TextInEnterPassword: String = binding.enterPassword.text.toString()
             .trim { it <= ' ' }
-
         return when {
             TextUtils.isEmpty(TextInEnterEmail) -> {
                 showErrorSnackBar("Please, enter e-mail.", true)
@@ -86,8 +89,6 @@ class ActivitySignIn : BaseActivity() {
                 false
             }
             else -> {
-                ACCOUNT_DATA.login = TextInEnterEmail
-                ACCOUNT_DATA.password = TextInEnterPassword
                 true
             }
         }

@@ -43,7 +43,7 @@ class ActivitySignUp : BaseActivity(){
 
 
     private fun signUp() {
-        val email : String = binding.EmailId.text.toString().trim{ it <= ' '}
+        val email : String = binding.EmailId.text.toString().trim{ it <= ' '}.decapitalize()
         val password : String =  binding.password1.text.toString().trim{ it <= ' '}
         if (validateRergisterDetails()) {
             showProgressDialog(getString(R.string.please_wait))
@@ -65,6 +65,9 @@ class ActivitySignUp : BaseActivity(){
                         "Users/${binding.EmailId.text.toString().trim{ it <= ' '}.replace(".", "+")}")
 
                     myRef.setValue(user)
+
+                    val intent = Intent(this@ActivitySignUp, ActivitySignIn::class.java)
+                    startActivity(intent)
 
                 } else{
                     hideProgressDialog()
@@ -92,6 +95,10 @@ class ActivitySignUp : BaseActivity(){
                 false
             }
             (!binding.checkBox.isChecked) -> {
+                showErrorSnackBar("Please, accept agreement.", true)
+                false
+            }
+            (binding.password1.text.toString().trim {it <= ' '} != binding.password2.text.toString().trim {it <= ' '}) -> {
                 showErrorSnackBar("Please, accept agreement.", true)
                 false
             }

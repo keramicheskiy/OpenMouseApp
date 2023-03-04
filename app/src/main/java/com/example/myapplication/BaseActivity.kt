@@ -146,6 +146,18 @@ open class BaseActivity : AppCompatActivity() {
 //        return
 //    }
 
-
+    fun String.isInt(): Boolean {
+        var result: Boolean = false
+        var isNotIntCounter = 0
+        this.forEach {
+            if (!it.isDigit()) {
+                isNotIntCounter++
+            }
+        }
+        if (isNotIntCounter == 0) {
+            result = true
+        }
+        return result
+    }
 
 }

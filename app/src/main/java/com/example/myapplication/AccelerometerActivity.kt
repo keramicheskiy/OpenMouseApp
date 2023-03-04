@@ -21,7 +21,7 @@ import com.google.firebase.ktx.Firebase
 import kotlin.math.roundToInt
 import kotlin.properties.Delegates
 
-open class AccelerometerActivity : IntentingControl() {
+open class AccelerometerActivity : BaseActivity() {
     var calibratedValueX = 0
     var calibratedValueY = 0
     var isBtnCalibrateWasClickedX: Boolean = false

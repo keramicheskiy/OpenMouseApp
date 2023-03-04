@@ -1,8 +1,12 @@
 package com.example.myapplication
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.myapplication.Database.DataStoreManager
 import com.example.myapplication.SQLiteDB.MyDbManager
 //import com.example.myapplication.Database.RoomDBManager
@@ -13,7 +17,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class ListOfMainScreens : IntentingControl() {
+class ListOfMainScreens : BaseActivity(){ // , View.OnClickListener
     private lateinit var binding: ListOfMainScreensBinding
     lateinit var mUserDetails: User
     lateinit var value: String
@@ -69,8 +73,6 @@ class ListOfMainScreens : IntentingControl() {
 //        }
 
         binding.redirectToFirstFunc.setOnClickListener() {
-            isItDirectedFromMainPage = true
-            isItDirectedFromFunctionsActivity = false
             val intent = Intent(this@ListOfMainScreens, MainActivity::class.java)
             startActivity(intent)
         }
@@ -109,8 +111,6 @@ class ListOfMainScreens : IntentingControl() {
         }
 
         binding.func1.setOnClickListener(){
-            isItDirectedFromMainPage = false
-            isItDirectedFromFunctionsActivity = true
             LLBlink(R.id.func1)
             Thread.sleep(150)
             val intent = Intent(this@ListOfMainScreens, MainActivity::class.java)
@@ -133,6 +133,8 @@ class ListOfMainScreens : IntentingControl() {
 
         binding.redirectToAccountDetails.setOnClickListener {
             val intent = Intent(this@ListOfMainScreens, Profile::class.java)
+            intent.putExtra(Constants.USER_LOGIN, login)
+            intent.putExtra(Constants.USER_PASSWORD, password)
             startActivity(intent)
         }
 
@@ -146,8 +148,12 @@ class ListOfMainScreens : IntentingControl() {
         }
     }
 
-
-
+//    override fun onClick(v: View?) {
+//        when (v?.id) {
+//            R.id.accountText -> {
+//            }
+//        }
+//    }
 
     override fun onPause() {
         super.onPause()

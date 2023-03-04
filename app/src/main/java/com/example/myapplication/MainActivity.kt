@@ -62,13 +62,10 @@ class MainActivity : AccelerometerActivity() {
             if (binding.SwitchStatus.isChecked) {
                 var AngleX = binding.AngleX.text.toString()
                 var AngleY = binding.AngleY.text.toString()
-//
-//                myRef.child("didServerHandleCommand").get().addOnSuccessListener {
-//                    didServerHandleCommand1 = it.value.toString()
-//                }
-//
+                val maxDeflectAngle = intent.getIntExtra(Constants.MAX_DEFLECT_ANGLE, Constants.MAX_DEFLECT_ANGLE_INT)
+
                 if (count == 0) {
-                    count++
+                    count = 1
                 } else {
                     didServerHandleCommand = "true"
                 }
@@ -79,7 +76,7 @@ class MainActivity : AccelerometerActivity() {
                     password,
                     AngleX.replace(".", "").replace("°", ""),
                     AngleY.replace(".", "").replace("°", ""),
-                    STORAGE.MaxDeflectAngle.toString(),
+                    maxDeflectAngle.toString(),
                     lastMouseCommand,
                     didServerHandleCommand,
                 )
@@ -123,6 +120,7 @@ class MainActivity : AccelerometerActivity() {
 
         binding.btnGetKeyboard.setOnClickListener() {
             imgBlink(R.id.btnGetKeyboard)
+            showErrorSnackBar("Not yet ready to use.", true)
 //            TODO("СДЕЛАТЬ КЛАВУ")
 
         }
