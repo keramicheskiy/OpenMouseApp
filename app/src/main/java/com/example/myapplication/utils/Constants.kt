@@ -10,6 +10,8 @@ object Constants {
     const val USER_DETAILS: String = "user_details"
     const val MAX_DEFLECT_ANGLE: String = "maxDeflectAngle"
     const val MAX_DEFLECT_ANGLE_INT: Int = 90
+    const val PRIVATE_USER_DETAILS: String = "PRIVATE_USER_DETAILS"
+    const val DEFAULT_VALUE: String = "---"
 
     const val USER_LOGIN: String = "user_login"
     const val USER_PASSWORD: String = "user_password"

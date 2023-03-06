@@ -9,9 +9,7 @@ import androidx.room.PrimaryKey
 data class UserDetailsDB(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
-    @ColumnInfo(name = "login")
-    var login: String,
-    @ColumnInfo(name = "password")
-    var password: String
+    @ColumnInfo(name = "PrivateUserDetails")
+    var PrivateUserDetails: String
 
 )

@@ -4,18 +4,26 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.myapplication.Database.DataStoreManager
+import com.example.myapplication.Database.DbFunctions
 import com.example.myapplication.SQLiteDB.MyDbManager
 //import com.example.myapplication.Database.RoomDBManager
 import com.example.myapplication.databinding.ListOfMainScreensBinding
 import com.example.myapplication.utils.Constants
+import com.example.myapplication.utils.UsersPrivateDetailsDataClass
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
+import java.util.concurrent.CountDownLatch
 
 class ListOfMainScreens : BaseActivity(){ // , View.OnClickListener
     private lateinit var binding: ListOfMainScreensBinding
@@ -39,19 +47,41 @@ class ListOfMainScreens : BaseActivity(){ // , View.OnClickListener
 
         // @CommonActions
 
-        myDbManager.openDb()
-
-        if (myDbManager.readUserDetailsFromDB().toString().length != 2) {
-            login = myDbManager.readUserDetailsFromDB()[0].login
-            password = myDbManager.readUserDetailsFromDB()[0].password
-//            validateUserOrLogOut(login, password)
-
-//            binding.profileLoginText.text = login
-//            binding.profilePasswordText.text = password
+        val done = CountDownLatch(1)
+        val builder = StringBuilder()
+        GlobalScope.launch {
+            val a = DataStoreManager.getStringValue(this@ListOfMainScreens, Constants.PRIVATE_USER_DETAILS, Constants.DEFAULT_VALUE)
+            builder.append(a)
+            done.countDown()
+        }
+        done.await()
+        var privateUserDetailsString = builder.toString()
+        if (privateUserDetailsString != Constants.DEFAULT_VALUE) {
+            var obj: UsersPrivateDetailsDataClass = Json.decodeFromString<UsersPrivateDetailsDataClass>(privateUserDetailsString)
+            login = obj.login
+            password = obj.password
         } else {
             val intent = Intent(this@ListOfMainScreens, ActivityChooseWayToEnter::class.java)
             startActivity(intent)
         }
+
+//        val json = Json.encodeToString(UsersPrivateDetailsDataClass("ya@s.ru", "pass123"))
+
+
+
+//        myDbManager.openDb()
+//
+//        if (myDbManager.readUserDetailsFromDB().toString().length != 2) {
+//            login = myDbManager.readUserDetailsFromDB()[0].login
+//            password = myDbManager.readUserDetailsFromDB()[0].password
+////            validateUserOrLogOut(login, password)
+//
+////            binding.profileLoginText.text = login
+////            binding.profilePasswordText.text = password
+//        } else {
+//            val intent = Intent(this@ListOfMainScreens, ActivityChooseWayToEnter::class.java)
+//            startActivity(intent)
+//        }
 
 
 
@@ -142,7 +172,10 @@ class ListOfMainScreens : BaseActivity(){ // , View.OnClickListener
             Firebase.auth.signOut()
             login = ""
             password = ""
-            myDbManager.deleteAllFromDb()
+//            myDbManager.deleteAllFromDb()
+            GlobalScope.launch {
+                DataStoreManager.saveValue(this@ListOfMainScreens, Constants.PRIVATE_USER_DETAILS, Constants.DEFAULT_VALUE)
+            }
             val intend = Intent(this@ListOfMainScreens, ActivityChooseWayToEnter::class.java)
             startActivity(intend)
         }
@@ -161,7 +194,7 @@ class ListOfMainScreens : BaseActivity(){ // , View.OnClickListener
 
     override fun onDestroy() {
         super.onDestroy()
-        myDbManager.closeDb()
+//        myDbManager.closeDb()
     }
 
 

@@ -12,12 +12,8 @@ interface Dao {
 
     @Query("SELECT * FROM UserDetailsDB")
     fun getAllUserDetails(): Flow<List<UserDetailsDB>>
-//
-//    @Query("SELECT login FROM UserDetailsDB")
-//    fun getLogin(): Flow<List<UserDetailsDB>>
-//
-//    @Query("SELECT password FROM UserDetailsDB")
-//    fun getPassword(): Flow<List<UserDetailsDB>>
+    @Query("SELECT PrivateUserDetails FROM UserDetailsDB")
+    fun getPrivateUserDetails(): Flow<List<UserDetailsDB>>
 
     @Query("DELETE FROM UserDetailsDB")
     fun deleteAll()

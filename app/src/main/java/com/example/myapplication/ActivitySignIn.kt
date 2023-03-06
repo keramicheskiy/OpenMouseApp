@@ -3,12 +3,23 @@ package com.example.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import com.example.myapplication.Database.DataStoreManager
 import com.example.myapplication.SQLiteDB.MyDbManager
 //import com.example.myapplication.Database.RoomDBManager
 import com.example.myapplication.databinding.ActivitySignInBinding
+import com.example.myapplication.utils.Constants
+import com.example.myapplication.utils.UsersPrivateDetailsDataClass
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
+import java.util.concurrent.CountDownLatch
 
 
 class ActivitySignIn : BaseActivity() {
@@ -51,9 +62,15 @@ class ActivitySignIn : BaseActivity() {
                             val login = it.child("email").value.toString()
                             val password = it.child("password").value.toString()
 
-                            myDbManager.openDb()
-                            myDbManager.deleteAllFromDb()
-                            myDbManager.insertUserDetailsToDB(login, password)
+//                            myDbManager.openDb()
+//                            myDbManager.deleteAllFromDb()
+//                            myDbManager.insertUserDetailsToDB(login, password)
+
+
+                            val privateUserDetails = Json.encodeToString(UsersPrivateDetailsDataClass(login, password))
+                            GlobalScope.launch {
+                                DataStoreManager.saveValue(this@ActivitySignIn, Constants.PRIVATE_USER_DETAILS, privateUserDetails)
+                            }
 
                             val intent = Intent(this@ActivitySignIn, ListOfMainScreens::class.java)
                             startActivity(intent)

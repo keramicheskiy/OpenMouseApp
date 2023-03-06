@@ -7,23 +7,18 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.View
-import android.view.animation.RotateAnimation
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.core.widget.doOnTextChanged
 import com.example.myapplication.SQLiteDB.MyDbManager
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.utils.AccelerometerActivity
 import com.example.myapplication.utils.Constants
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import io.grpc.Context.Storage
 import kotlin.math.roundToInt
-import kotlin.random.Random
 
 class MainActivity : AccelerometerActivity() {
 
