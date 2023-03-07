@@ -160,6 +160,7 @@ class ListOfMainScreens : BaseActivity(){ // , View.OnClickListener
 //        animate()
 
         // @Profile_activity
+        binding.loginText.text = login
 
         binding.redirectToAccountDetails.setOnClickListener {
             val intent = Intent(this@ListOfMainScreens, Profile::class.java)
